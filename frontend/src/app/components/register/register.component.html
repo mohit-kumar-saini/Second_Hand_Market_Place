@@ -1,0 +1,86 @@
+<div class="container">
+
+  <div class="form-section">
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <h2>Register</h2>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+      
+      <div class="input-container">
+        <label for="username">Username:</label>
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            [(ngModel)]="registerData.username" 
+            required 
+            #username="ngModel"
+            [ngClass]="{'valid': username.valid && username.touched, 'invalid': username.invalid && username.touched}"
+          >
+          <span *ngIf="username.touched" class="icon" [ngClass]="{'valid-icon': username.valid, 'invalid-icon': username.invalid}">
+            {{ username.valid ? '✔' : '❌' }}
+          </span>
+        </div>
+        <div class="error-message" *ngIf="username.touched && username.invalid">
+          Username is required.
+        </div>
+      </div>
+
+    
+      <div class="input-container">
+        <label for="email">Email:</label>
+        <div class="input-wrapper">
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            [(ngModel)]="registerData.email" 
+            required 
+            email
+            #email="ngModel"
+            [ngClass]="{'valid': email.valid && email.touched, 'invalid': email.invalid && email.touched}"
+          >
+          <span *ngIf="email.touched" class="icon" [ngClass]="{'valid-icon': email.valid, 'invalid-icon': email.invalid}">
+            {{ email.valid ? '✔' : '❌' }}
+          </span>
+        </div>
+        <div class="error-message" *ngIf="email.touched && email.invalid">
+          Enter a valid email address.
+        </div>
+      </div>
+
+  
+      <div class="input-container">
+        <label for="password">Password:</label>
+        <div class="input-wrapper">
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            [(ngModel)]="registerData.password" 
+            required 
+            minlength="6"
+            #password="ngModel"
+            [ngClass]="{'valid': password.valid && password.touched, 'invalid': password.invalid && password.touched}"
+          >
+          <span *ngIf="password.touched" class="icon" [ngClass]="{'valid-icon': password.valid, 'invalid-icon': password.invalid}">
+            {{ password.valid ? '✔' : '❌' }}
+          </span>
+        </div>
+        <div class="error-message" *ngIf="password.touched && password.invalid">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
+      <p class="login-link">
+        Already have an account? <span (click)="goToLogin()" class="login-text">Login</span>
+      </p>
+      
+    </form>
+  </div>
+</div>

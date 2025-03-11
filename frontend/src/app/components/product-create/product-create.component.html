@@ -1,0 +1,55 @@
+<h2 class="form-title">Start Selling Your Preloved Items</h2>
+
+<form #productForm="ngForm" (ngSubmit)="onSubmit()" novalidate class="form-container">
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" [(ngModel)]="productData.title" required #title="ngModel">
+    <div *ngIf="title.invalid && title.touched" class="error">Title is required</div>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" [(ngModel)]="productData.price" required min="1" #price="ngModel">
+    <div *ngIf="price.invalid && price.touched" class="error">Price must be greater than 0</div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" [(ngModel)]="productData.description" required #description="ngModel"></textarea>
+    <div *ngIf="description.invalid && description.touched" class="error">Description is required</div>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" [(ngModel)]="productData.category" required #category="ngModel">
+    <div *ngIf="category.invalid && category.touched" class="error">Category is required</div>
+  </div>
+
+  <div class="form-group">
+    <label for="condition">Condition:</label>
+    <select id="condition" name="condition" [(ngModel)]="productData.condition" required #condition="ngModel">
+      <option value="new">New</option>
+      <option value="used">Used</option>
+      <option value="refurbished">Refurbished</option>
+      <option value="broken">Broken</option>
+     
+
+    </select>
+    <div *ngIf="condition.invalid && condition.touched" class="error">Condition is required</div>
+  </div>
+
+  <div class="form-group">
+    <label for="imageUrl">Image URL:</label>
+    <input type="url" id="imageUrl" name="imageUrl" [(ngModel)]="productData.imageUrl" required #imageUrl="ngModel">
+    <div *ngIf="imageUrl.invalid && imageUrl.touched" class="error">Enter a valid URL</div>
+  </div>
+
+  <div class="form-group">
+    <label for="seller">Seller:</label>
+    <input type="text" id="seller" name="seller" [(ngModel)]="productData.seller.username" readonly>
+  </div>
+
+  <button type="submit" [disabled]="productForm.invalid" class="submit-btn">Create Product</button>
+</form>

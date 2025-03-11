@@ -1,0 +1,129 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.product-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 15px;
+}
+
+.product-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+.product-image {
+  position: relative;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 10px;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #cc0c39;
+  color: white;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.product-details {
+  padding: 10px 0;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0f1111;
+  margin-bottom: 5px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-description {
+  font-size: 14px;
+  color: #565959;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price {
+  font-size: 18px;
+  color: #b12704;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.product-shipping {
+  font-size: 12px;
+  color: #007600;
+  font-weight: bold;
+}
+
+.product-actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.btn-primary, .btn-secondary {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #ffa41c;
+  color: #0f1111;
+  border: 1px solid #ffa41c;
+}
+
+.btn-secondary {
+  background-color: #f0f2f2;
+  color: #0f1111;
+  border: 1px solid #d5d9d9;
+}
+
+.btn-primary:hover {
+  background-color: #ff8f00;
+}
+
+.btn-secondary:hover {
+  background-color: #e7e9e9;
+}
